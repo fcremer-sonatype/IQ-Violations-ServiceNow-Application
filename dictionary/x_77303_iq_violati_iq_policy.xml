@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="iq_policy" max_length="40" name="x_77303_iq_violati_iq_policy" type="collection">
+        <element label="Policy ID" max_length="40" name="policy_id" type="string"/>
+        <element display="true" label="Policy name" max_length="40" name="policy_name" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="eefbbf3adb137300a70dd1b1ca96199f" sys_domain="global" table="x_77303_iq_violati_iq_violations" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>violation_id</element>
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 11:35:34</sys_created_on>
+            <sys_id>22fbbf3adb137300a70dd1b1ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 11:35:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_artifact</element>
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 11:35:34</sys_created_on>
+            <sys_id>2afbbf3adb137300a70dd1b1ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 11:35:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_policy</element>
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 11:35:34</sys_created_on>
+            <sys_id>aafbbf3adb137300a70dd1b1ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 11:35:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_application</element>
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 11:35:34</sys_created_on>
+            <sys_id>2efbbf3adb137300a70dd1b1ca9619a5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 11:35:34</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_threat_level</element>
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 17:17:53</sys_created_on>
+            <sys_id>fc5a8dcfdb177300a70dd1b1ca9619c7</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 17:17:53</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_violation_id</element>
+            <position>5</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 17:21:06</sys_created_on>
+            <sys_id>4c1b45cfdb177300a70dd1b1ca961941</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 17:21:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>policy</element>
+            <position>6</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 23:51:32</sys_created_on>
+            <sys_id>d7642283db9b7300a70dd1b1ca96197d</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 23:51:32</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_violation_reasons</element>
+            <position>7</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-21 01:25:49</sys_created_on>
+            <sys_id>180ab647dbdb7300a70dd1b1ca96196f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-21 01:25:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_vulnerability_id</element>
+            <position>8</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-21 01:55:06</sys_created_on>
+            <sys_id>55b043cbdbdb7300a70dd1b1ca96191c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-21 01:55:06</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_vulnerability_info</element>
+            <position>9</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-21 01:56:21</sys_created_on>
+            <sys_id>b7f08b8bdbdb7300a70dd1b1ca9619cd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-21 01:56:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>iq_app_scan_report</element>
+            <position>10</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-21 02:06:41</sys_created_on>
+            <sys_id>4f530b4fdbdb7300a70dd1b1ca9619eb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_77303_iq_violati_iq_violations" sys_domain="global" view="Default view">eefbbf3adb137300a70dd1b1ca96199f</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-21 02:06:41</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_77303_iq_violati_iq_violations</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2019-08-20 11:35:34</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>eefbbf3adb137300a70dd1b1ca96199f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_77303_iq_violati_iq_violations</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="IQ_Violations" source="x_77303_iq_violati">cda1757adb1b3300a70dd1b1ca961940</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="IQ_Violations">cda1757adb1b3300a70dd1b1ca961940</sys_scope>
+            <sys_update_name>sys_ui_section_eefbbf3adb137300a70dd1b1ca96199f</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2019-08-20 11:35:34</sys_updated_on>
+            <sys_user/>
+            <title>true</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

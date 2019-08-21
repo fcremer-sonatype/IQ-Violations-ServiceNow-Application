@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="iq_applications" max_length="40" name="x_77303_iq_violati_iq_applications" type="collection">
+        <element label="Application ID" max_length="40" name="application_id" type="string"/>
+        <element display="true" label="Application name" max_length="40" name="application_name" type="string"/>
+    </element>
+</database>

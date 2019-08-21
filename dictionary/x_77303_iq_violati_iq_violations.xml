@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="iq_violations" max_length="40" name="x_77303_iq_violati_iq_violations" type="collection">
+        <element label="Application" max_length="32" name="iq_application" reference="x_77303_iq_violati_iq_applications" type="reference"/>
+        <element label="App Scan Report" max_length="1024" name="iq_app_scan_report" type="url"/>
+        <element label="Artifact" max_length="80" name="iq_artifact" type="string"/>
+        <element label="Policy" max_length="32" name="iq_policy" reference="x_77303_iq_violati_iq_policy" type="reference"/>
+        <element choice="1" label="Threat Level" max_length="40" name="iq_threat_level" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="0"/>
+                <element inactive_on_update="false" label="1" value="1"/>
+                <element inactive_on_update="false" label="10" value="10"/>
+                <element inactive_on_update="false" label="2" value="2"/>
+                <element inactive_on_update="false" label="3" value="3"/>
+                <element inactive_on_update="false" label="4" value="4"/>
+                <element inactive_on_update="false" label="5" value="5"/>
+                <element inactive_on_update="false" label="6" value="6"/>
+                <element inactive_on_update="false" label="7" value="7"/>
+                <element inactive_on_update="false" label="8" value="8"/>
+                <element inactive_on_update="false" label="9" value="9"/>
+            </choice>
+        </element>
+        <element label="Violation ID" max_length="45" name="iq_violation_id" type="string"/>
+        <element label="Violation Reasons" max_length="1024" name="iq_violation_reasons" type="string"/>
+        <element label="Vulnerability ID" max_length="40" name="iq_vulnerability_id" type="string"/>
+        <element label="Vulnerability Info" max_length="1024" name="iq_vulnerability_info" type="url"/>
+        <index name="index">
+            <element name="iq_application"/>
+        </index>
+        <index name="index2">
+            <element name="iq_policy"/>
+        </index>
+    </element>
+</database>

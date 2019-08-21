@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_operation">
+    <sys_ws_operation action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <consumes>application/json,application/xml,text/xml</consumes>
+        <consumes_customized>false</consumes_customized>
+        <default_operation_uri/>
+        <enforce_acl>cf9d01d3e73003009d6247e603f6a990</enforce_acl>
+        <http_method>POST</http_method>
+        <name>IQ_Violation</name>
+        <operation_script><![CDATA[(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+
+    // implement resource here
+	//Parse JSON
+	//set variables
+	var body;
+	var iq_report_id;
+	var iq_violation_id;
+	var iq_application_name;
+	var iq_application_id;
+	var app_record_sys_id;
+	var iq_policy;
+	var iq_policy_id;
+	var pol_record_sys_id;
+	var iq_threat_level;
+	var iq_artifact;
+	var iq_violation_reasons;
+	var iq_vulnerability_id;
+	var iq_server_url;
+	
+	
+	//set variable values
+	body = request.body.data;
+	iq_server_url  = 'http://localhost:8070';
+	iq_report_id = body.applicationEvaluation.reportId;
+	iq_application_name = body.application.name;
+	iq_application_id = body.application.id;
+	
+	
+	//Need to check if the Application already exists in the Choice List
+	var gr_Applications = new GlideRecord('x_77303_iq_violati_iq_applications');
+	gr_Applications.addQuery('application_id',iq_application_id);
+	gr_Applications.query();
+	if(!gr_Applications.next())
+    {
+		var gr_new_Application = new GlideRecord('x_77303_iq_violati_iq_applications');
+		gr_new_Application.initialize();
+		gr_new_Application.application_id = iq_application_id;
+		gr_new_Application.application_name = iq_application_name;
+		app_record_sys_id = gr_new_Application.insert();
+
+	}
+	else
+	{
+		gr_Applications.next();
+		app_record_sys_id = gr_Applications.sys_id;
+			
+	}
+	//Now we are going to go through the policy alerts array
+	var policyAlerts = body.policyAlerts;
+	for (var i=0; i<policyAlerts.length; i++)
+	{
+		iq_violation_id = body.policyAlerts[i].policyViolationId;
+		//want to make sure we only add new policy violations
+		var gr_policyViolations = new GlideRecord('x_77303_iq_violati_iq_violations');
+		gr_policyViolations.addQuery('iq_violation_id', iq_violation_id);
+		gr_policyViolations.query();
+		if(!gr_policyViolations.next())
+		{
+			//If the policy ID is not found, then we need to add it
+			//First we are going to get the Policy name, ID and Threat Level
+			iq_policy = body.policyAlerts[i].policyName;
+			iq_policy_id = body.policyAlerts[i].policyId;
+			iq_threat_level = body.policyAlerts[i].threatLevel;
+			//Let's take a look to make sure that the policy already exists if not we'll add it.
+			var gr_policy = new GlideRecord('x_77303_iq_violati_iq_policy');
+			gr_policy.addQuery('policy_id',iq_policy_id);
+			gr_policy.query();
+			if(!gr_policy.next())
+			{
+				var gr_new_policy = new GlideRecord('x_77303_iq_violati_iq_policy');
+				gr_new_policy.initialize();
+				gr_new_policy.policy_id = iq_policy_id;
+				gr_new_policy.policy_name = iq_policy;
+				pol_record_sys_id = gr_new_policy.insert();
+
+			}
+			else
+			{
+				gr_policy.next();
+				pol_record_sys_id = gr_policy.sys_id;
+			}
+			
+			iq_artifact = body.policyAlerts[i].componentFacts[0].displayName;
+			
+			//Now we are going to set up the Violation reasons, and there may be many
+			//initialize it as an empty string
+			iq_violation_reasons = '';
+			var constraint_Facts = body.policyAlerts[i].componentFacts[0].constraintFacts;
+			//Depending on how you have your constraints set in the policy you may only want the first reason to show.
+			for (var j=0;j<constraint_Facts.length; j++)
+			{
+				iq_violation_reasons = body.policyAlerts[i].componentFacts[0].constraintFacts[j].satisfiedConditions[0].reason;
+				//while we are here, let's see if we can find a vulnerability
+				//first see if we have a CVE
+				var index_of_string = iq_violation_reasons.indexOf('CVE');
+				if (index_of_string != -1)
+				{
+					var sub_string = iq_violation_reasons.substring(index_of_string);
+					var index_end = sub_string.indexOf(" ");	
+					iq_vulnerability_id = sub_string.substring(0, index_end);
+					
+				}
+				else
+				{
+					index_of_string = iq_violation_reasons.indexOf('sonatype');
+					if (index_of_string != -1)
+					{
+						sub_string = iq_violation_reasons.substring(index_of_string);
+						index_end = sub_string.indexOf(" ");	
+						iq_vulnerability_id = sub_string.substring(0, index_end);
+					
+					}
+					
+						
+				}
+				
+				
+			}
+			//Code below only pulls the first reason
+			//If you want to include all reasons, use code below
+			/*for (var j=0;j<constraint_Facts.length; j++)
+			{
+				var satisfied_Conditions = body.policyAlerts[i].componentFacts[0].constraintFacts[j].satisfiedConditions;
+				for (var k=0;k<satisfied_Conditions.length;k++)
+				{
+					iq_violation_reasons += body.policyAlerts[i].componentFacts[0].constraintFacts[j].satisfiedConditions[k].reason + '\n';
+				}
+			}*/
+	
+			var gr_new_policyViolation = new GlideRecord('x_77303_iq_violati_iq_violations');
+			gr_new_policyViolation.initialize();
+			gr_new_policyViolation.iq_violation_id=iq_violation_id;
+			gr_new_policyViolation.iq_application = app_record_sys_id;
+			gr_new_policyViolation.iq_policy = pol_record_sys_id;
+			gr_new_policyViolation.iq_artifact = iq_artifact;
+			gr_new_policyViolation.iq_threat_level = iq_threat_level;
+			gr_new_policyViolation.iq_violation_reasons = iq_violation_reasons;
+			gr_new_policyViolation.iq_vulnerability_id = iq_vulnerability_id;
+			gr_new_policyViolation.iq_vulnerability_info = iq_server_url + '/ui/links/vln/' + iq_vulnerability_id;
+			gr_new_policyViolation.iq_app_scan_report = iq_server_url + '/assets/index.html#/applicationReport/'  + iq_application_name + '/' + iq_report_id + '/policy'; 
+			gr_new_policyViolation.insert();
+		}
+	}
+})(request, response);]]></operation_script>
+        <operation_uri>/api/x_77303_iq_violati/nexus_webhook</operation_uri>
+        <produces>application/json,application/xml,text/xml</produces>
+        <produces_customized>false</produces_customized>
+        <relative_path>/</relative_path>
+        <request_example/>
+        <requires_acl_authorization>true</requires_acl_authorization>
+        <requires_authentication>false</requires_authentication>
+        <requires_snc_internal_role>true</requires_snc_internal_role>
+        <short_description/>
+        <sys_class_name>sys_ws_operation</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-08-20 01:52:35</sys_created_on>
+        <sys_id>2676f5f2db5b3300a70dd1b1ca961959</sys_id>
+        <sys_mod_count>35</sys_mod_count>
+        <sys_name>IQ_Violation</sys_name>
+        <sys_package display_value="IQ_Violations" source="x_77303_iq_violati">cda1757adb1b3300a70dd1b1ca961940</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IQ_Violations">cda1757adb1b3300a70dd1b1ca961940</sys_scope>
+        <sys_update_name>sys_ws_operation_2676f5f2db5b3300a70dd1b1ca961959</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-08-21 12:56:37</sys_updated_on>
+        <web_service_definition display_value="Nexus_Webhook">f46639f2db5b3300a70dd1b1ca961981</web_service_definition>
+        <web_service_version/>
+    </sys_ws_operation>
+</record_update>
